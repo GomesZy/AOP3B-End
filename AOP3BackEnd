@@ -1,0 +1,16 @@
+function atualizarCarrinho() 
+{
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://fakestoreapi.com/carts', true);
+    //utilizando a API fakestoreapi para simular um carrinho de compras
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const resposta = JSON.parse(xhr.responseText);
+            console.log(resposta);
+    } 
+        else if (xhr.readyState === 4) {
+        console.error('Erro na requisição:', xhr.status);
+    }
+};
+    xhr.send();
+}
